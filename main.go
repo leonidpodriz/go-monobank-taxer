@@ -19,11 +19,6 @@ type Opts struct {
 	To         string `long:"to" env:"TO" required:"true" description:"to date"`
 }
 
-type TimePeriod struct {
-	From time.Time
-	To   time.Time
-}
-
 func main() {
 	var opts Opts
 	p := flags.NewParser(&opts, flags.Default)

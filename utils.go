@@ -6,6 +6,11 @@ import (
 	"time"
 )
 
+type TimePeriod struct {
+	From time.Time
+	To   time.Time
+}
+
 func ReversedTimePeriods(from, to time.Time, step time.Duration) []TimePeriod {
 	var periods []TimePeriod
 	var cursor = to

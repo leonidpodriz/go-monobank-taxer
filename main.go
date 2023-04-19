@@ -11,8 +11,6 @@ import (
 	"time"
 )
 
-const MonoStep = 2682000 * time.Second
-
 type Opts struct {
 	TaxerEmail string `long:"taxer-email" env:"TAXER_EMAIL" required:"true" description:"email of taxer"`
 	TaxerPass  string `long:"taxer-pass" env:"TAXER_PASS" required:"true" description:"password of taxer"`

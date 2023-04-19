@@ -242,29 +242,3 @@ func correspondingTaxerAccount(taxAccounts []taxer.Account, monoAcc monobank.Acc
 
 	return nil
 }
-
-func ReversedTimePeriods(from, to time.Time, step time.Duration) []TimePeriod {
-	var periods []TimePeriod
-	var cursor = to
-
-	for {
-		period := TimePeriod{
-			From: cursor.Add(-step),
-			To:   cursor,
-		}
-
-		if period.From.Before(from) {
-			period.From = from
-		}
-
-		periods = append(periods, period)
-
-		if period.From.Equal(from) {
-			break
-		}
-
-		cursor = period.From
-	}
-
-	return periods
-}

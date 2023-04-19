@@ -24,12 +24,6 @@ type TimePeriod struct {
 	To   time.Time
 }
 
-var currencies = map[int]string{
-	980: "UAH",
-	840: "USD",
-	978: "EUR",
-}
-
 func main() {
 	var opts = Opts{"", "", "", "2023-01-11", "2023-04-18"}
 	var ctx, cancel = context.WithCancel(context.Background())
@@ -114,7 +108,7 @@ func main() {
 		err = tax.CreateAccount(taxUser.Id, taxer.Account{
 			Title:    fmt.Sprintf("%s: %s", monoInfo.Name, monoAcc.AccountID),
 			Num:      monoAcc.IBAN,
-			Currency: currencies[monoAcc.CurrencyCode],
+			Currency: CurrencyCode(monoAcc.CurrencyCode),
 			Comment:  "auto-synced",
 			Bank:     "monobank",
 		})

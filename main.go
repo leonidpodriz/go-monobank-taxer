@@ -3,9 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/jessevdk/go-flags"
 	"github.com/leonidpodriz/go-monobank-taxer/taxer"
 	"github.com/vtopc/go-monobank"
 	"log"
+	"os"
 	"time"
 )
 
@@ -25,7 +27,16 @@ type TimePeriod struct {
 }
 
 func main() {
-	var opts = Opts{"", "", "", "2023-01-11", "2023-04-18"}
+	var opts Opts
+	p := flags.NewParser(&opts, flags.Default)
+
+	if _, err := p.Parse(); err != nil {
+		if flagsErr, ok := err.(*flags.Error); ok && flagsErr.Type == flags.ErrHelp {
+			os.Exit(0)
+		}
+		os.Exit(1)
+	}
+
 	var ctx, cancel = context.WithCancel(context.Background())
 	defer cancel()
 

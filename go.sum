@@ -8,11 +8,13 @@ github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZN
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
-github.com/vtopc/epoch v1.3.0 h1:grB1J6FJVfIMbK6GY0LpOO86R4rQZ4oVwHa08USBPKA=
 github.com/vtopc/epoch v1.3.0/go.mod h1:oQJwg81RJ2bCV01D4ImQ+cwpcRDUNc66x/9A/6I2RYU=
+github.com/vtopc/epoch v1.4.0 h1:C59lL9TT9lc0AGZuzlE9C3xcLXAvk6Z8n5XWdarpxz0=
+github.com/vtopc/epoch v1.4.0/go.mod h1:kAHd1D/6BOWKkZSRGcH83cQQyIIUHbCfqZkuK7iEDas=
 github.com/vtopc/go-monobank v0.19.1 h1:swa3U2N2n7FnSaP5zb/j73iL5Tud/IxKpTrcaByNhgI=
 github.com/vtopc/go-monobank v0.19.1/go.mod h1:gTC/lAouMpz9WfHnXF3RC0JdEPZwnl7P4vBG+htKT3c=
-github.com/vtopc/go-rest v0.3.0 h1:kP+5UNeTVQxwRX3tXe/XByuntwZmKArv5/uMdEf1WKo=
 github.com/vtopc/go-rest v0.3.0/go.mod h1:t7XPUz57Z+U66vsVIjEm89Uw/NZf486JVAFhq6+mZps=
+github.com/vtopc/go-rest v0.4.0 h1:ycBdlQPOZTVvgdyO/Q+ldZaHbmtSBI7U5F7KzjtC0u4=
+github.com/vtopc/go-rest v0.4.0/go.mod h1:t7XPUz57Z+U66vsVIjEm89Uw/NZf486JVAFhq6+mZps=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=

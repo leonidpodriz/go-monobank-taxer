@@ -50,12 +50,11 @@ func main() {
 	if from, err = opts.FromDate(); err != nil {
 		log.Fatalf("[PANIC] Error parsing from date: %s", err)
 	}
-	if to, err = opts.ToDate(); from.After(to) {
-		log.Fatalf("[PANIC] From date is after to date")
-	}
-
-	if err != nil {
+	if to, err = opts.ToDate(); err != nil {
 		log.Fatalf("[PANIC] Error parsing to date: %s", err)
+	}
+	if from.After(to) {
+		log.Fatalf("[PANIC] From date is after to date")
 	}
 
 	log.Println("[INFO] Creating taxer and mono clients...")

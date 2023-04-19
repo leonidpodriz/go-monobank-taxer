@@ -1,6 +1,10 @@
 package main
 
-import "time"
+import (
+	"github.com/leonidpodriz/go-monobank-taxer/taxer"
+	"github.com/vtopc/go-monobank"
+	"time"
+)
 
 func ReversedTimePeriods(from, to time.Time, step time.Duration) []TimePeriod {
 	var periods []TimePeriod
@@ -30,4 +34,26 @@ func ReversedTimePeriods(from, to time.Time, step time.Duration) []TimePeriod {
 	}
 
 	return periods
+}
+
+func CorrespondingTaxerAccount(taxAccounts []taxer.Account, monoAcc monobank.Account) *taxer.Account {
+	for _, taxAcc := range taxAccounts {
+		if taxAcc.Comment != "auto-synced" {
+			continue
+		}
+
+		if taxAcc.Num != monoAcc.IBAN {
+			continue
+		}
+
+		monoCurrency := currencies[monoAcc.CurrencyCode]
+
+		if taxAcc.Currency != monoCurrency {
+			continue
+		}
+
+		return &taxAcc
+	}
+
+	return nil
 }

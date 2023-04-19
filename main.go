@@ -101,7 +101,7 @@ func main() {
 			continue
 		}
 
-		taxAcc := correspondingTaxerAccount(taxAccounts, monoAcc)
+		taxAcc := CorrespondingTaxerAccount(taxAccounts, monoAcc)
 
 		if taxAcc == nil {
 			unSyncedAccounts = append(unSyncedAccounts, monoAcc)
@@ -141,7 +141,7 @@ func main() {
 			continue
 		}
 
-		taxAcc := correspondingTaxerAccount(taxAccounts, monoAcc)
+		taxAcc := CorrespondingTaxerAccount(taxAccounts, monoAcc)
 		taxOps, err := tax.GetAllOperationsForPeriod(taxUser.Id, taxAcc.Id, from, to)
 
 		if err != nil {
@@ -219,26 +219,4 @@ func main() {
 	if err != nil {
 		log.Printf("[ERROR] Error creating operations: %s", err)
 	}
-}
-
-func correspondingTaxerAccount(taxAccounts []taxer.Account, monoAcc monobank.Account) *taxer.Account {
-	for _, taxAcc := range taxAccounts {
-		if taxAcc.Comment != "auto-synced" {
-			continue
-		}
-
-		if taxAcc.Num != monoAcc.IBAN {
-			continue
-		}
-
-		monoCurrency := currencies[monoAcc.CurrencyCode]
-
-		if taxAcc.Currency != monoCurrency {
-			continue
-		}
-
-		return &taxAcc
-	}
-
-	return nil
 }

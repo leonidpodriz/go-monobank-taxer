@@ -19,6 +19,14 @@ type Opts struct {
 	To         string `long:"to" env:"TO" required:"true" description:"to date" required:"true"`
 }
 
+func (o *Opts) FromDate() (time.Time, error) {
+	return time.Parse(DatePattern, o.From)
+}
+
+func (o *Opts) ToDate() (time.Time, error) {
+	return time.Parse(DatePattern, o.To)
+}
+
 func main() {
 	var opts Opts
 	p := flags.NewParser(&opts, flags.Default)
@@ -35,15 +43,14 @@ func main() {
 
 	log.Println("[INFO] Starting syncer")
 
-	from, err := time.Parse("2006-01-02", opts.From)
-
-	if err != nil {
+	var (
+		from, to time.Time
+		err      error
+	)
+	if from, err = opts.FromDate(); err != nil {
 		log.Fatalf("[PANIC] Error parsing from date: %s", err)
 	}
-
-	to, err := time.Parse("2006-01-02", opts.To)
-
-	if from.After(to) {
+	if to, err = opts.ToDate(); from.After(to) {
 		log.Fatalf("[PANIC] From date is after to date")
 	}
 

@@ -12,11 +12,11 @@ import (
 )
 
 type Opts struct {
-	TaxerEmail string `long:"taxer-email" env:"TAXER_EMAIL" required:"true" description:"email of taxer"`
-	TaxerPass  string `long:"taxer-pass" env:"TAXER_PASS" required:"true" description:"password of taxer"`
-	MonoToken  string `long:"mono-token" env:"MONO_TOKEN" required:"true" description:"token of monobank"`
-	From       string `long:"from" env:"FROM" required:"true" description:"from date"`
-	To         string `long:"to" env:"TO" required:"true" description:"to date"`
+	TaxerEmail string `long:"taxer-email" env:"TAXER_EMAIL" required:"true" description:"email of taxer" required:"true"`
+	TaxerPass  string `long:"taxer-pass" env:"TAXER_PASS" required:"true" description:"password of taxer" required:"true"`
+	MonoToken  string `long:"mono-token" env:"MONO_TOKEN" required:"true" description:"token of monobank" required:"true"`
+	From       string `long:"from" env:"FROM" required:"true" description:"from date" required:"true"`
+	To         string `long:"to" env:"TO" required:"true" description:"to date" required:"true"`
 }
 
 func main() {
